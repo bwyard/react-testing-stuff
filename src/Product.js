@@ -1,27 +1,30 @@
-import React from 'react'
-import { propTypes } from 'react-bootstrap/esm/Image';
-import { Media } from 'reactstrap'
+import React from 'react';
 import Rating from './Rating';
-import { Media } from 'react-bootstrap'
+import { Media } from 'react-bootstrap';
 
-const Product = () => {
-    return(
-        <div>
-            <Media>
-      <Media left href="#">
-        <Media object data-src={propTypes.data.imageUrl}alt="Generic placeholder image" />
-      </Media>
-      <Media body>
-        <Media heading>
-          {props.data.productName}
-        </Media>
-        {props.data.releasedDate}
-            <Rating rating={props.data.rating} numOfReviews={props.data.numOfReviews}/>
-        <p>{props.data.description}</p>
-      </Media>
-    </Media>
-        </div>
+
+const Product = (props) => {
+    return (
+      <div> 
+       <Media>
+            <img 
+                width={64} 
+                height={64} 
+                className="mr-3"
+                src={props.data.imageUrl} 
+                alt="Image"
+            />
+          <Media.Body>
+            <h5>{props.data.productName}</h5>
+            { props.data.releasedDate }
+            <Rating 
+                rating={props.data.rating} numOfReviews={props.data.numOfReviews}
+            />
+            <p>{props.data.description}</p>
+          </Media.Body>
+        </Media>                                                                                                                                   
+      </div>
     );
-}
+  }
 
 export default Product;
