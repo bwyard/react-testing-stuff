@@ -34,6 +34,10 @@ function UserForm(){
         else if(password.includes(" ")){
             setPasswordError("Password cannot contain spaces")
         }
+        else{
+            setPasswordError("")
+            passwordValid = true
+        }
 
         if(emailValid && passwordValid){
             alert(`Email: ${email}\nPassword: ${password}`)
