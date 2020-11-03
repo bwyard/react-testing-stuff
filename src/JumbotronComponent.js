@@ -2,8 +2,8 @@ import React from 'react';
 import {Jumbotron,Button} from 'react-bootstrap';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
-function JumbotronComponent(){
-    retuyrn(
+function JumbotronComponent(props){
+    return(
         <div>
             <Jumbotron>
                 <h1>Hello, world!</h1>
