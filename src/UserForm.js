@@ -37,6 +37,8 @@ function UserForm(){
 
         if(emailValid && passwordValid){
             alert(`Email: ${email}\nPassword: ${password}`)
+            setEmail("")
+            setPassword("")
         }
     }
     return(
@@ -45,7 +47,7 @@ function UserForm(){
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" 
-                    onChange={event => setEmail(event.target.value)}/>
+                    onChange={event => setEmail(event.target.value)} value={email}/>
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone.
                     </Form.Text>
@@ -56,7 +58,7 @@ function UserForm(){
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" 
-                    onChange={event=>setPassword(event.target.value)}/>
+                    onChange={event=>setPassword(event.target.value)} value={password}/>
                 </Form.Group>
                 {passwordError.length>0 &&
                 <Alert variant='danger'>{passwordError</Alert>}
