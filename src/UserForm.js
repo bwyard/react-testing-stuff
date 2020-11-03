@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, Alert} from 'react-bootstrap'
 
 function UserForm(){
     const [email,setEmail] =useState("")
@@ -10,6 +10,7 @@ function UserForm(){
     const handleSubmit = event => {
         event.preventDefault();
         var emailValid = false;
+        var passwordValid = false
         if(email.length ===0) {
             setEmailError("email is required");
         }
@@ -24,7 +25,17 @@ function UserForm(){
             emailValid = true
         }
 
-        if(emailValid){
+        if(password.length ===0){
+            setPasswordError("Password is required")
+        }
+        else if(password.length<8){
+            setPasswordError("Password should be minimum 8 characters")
+        }
+        else if(password.includes(" ")){
+            setPasswordError("Password cannot contain spaces")
+        }
+
+        if(emailValid && passwordValid){
             alert(`Email: ${email}\nPassword: ${password}`)
         }
     }
@@ -39,12 +50,16 @@ function UserForm(){
                         We'll never share your email with anyone.
                     </Form.Text>
                 </Form.Group>
+                {emailError.length>0&&
+                <Alert variant="danger">{emailError}</Alert>}
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" 
                     onChange={event=>setPassword(event.target.value)}/>
                 </Form.Group>
+                {passwordError.length>0 &&
+                <Alert variant='danger'>{passwordError</Alert>}
                 <Button variant="primary" type="submit">Submit</Button>
             </Form>
             Email entered:{email}
