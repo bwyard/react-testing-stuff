@@ -54,14 +54,13 @@ function UserForm(){
                 </Form.Group>
                 {emailError.length>0&&
                 <Alert variant="danger">{emailError}</Alert>}
-
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" 
                     onChange={event=>setPassword(event.target.value)} value={password}/>
                 </Form.Group>
                 {passwordError.length>0 &&
-                <Alert variant='danger'>{passwordError</Alert>}
+                <Alert variant='danger'>{passwordError}</Alert>}
                 <Button variant="primary" type="submit">Submit</Button>
             </Form>
             Email entered:{email}
